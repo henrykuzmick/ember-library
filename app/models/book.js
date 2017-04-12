@@ -6,7 +6,7 @@ export default DS.Model.extend({
   releaseYear: DS.attr('date'),
   library: DS.belongsTo('library'),
   author: DS.belongsTo('author'),
-
+  isNotValid: Ember.computed.empty('title'),
   randomize(author, library) {
     this.set('title', this._bookTitle());
     this.set('author', author);
