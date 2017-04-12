@@ -6,9 +6,6 @@ export default Ember.Controller.extend({
   isAllValid: Ember.computed.and('isValidEmail', 'isValidMessage'),
   isDisabled: Ember.computed.not('isAllValid'),
   actions: {
-    willTransition() {
-      this.controller.get('model').rollbackAttributes();
-    },
     sendMessage() {
       this.model.save().then((response) => {
         this.set('responseMessage', `Thank you! We've just sent your messaeg to: ${this.get('emailAddress')}`);
